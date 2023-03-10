@@ -39,6 +39,7 @@ while (!validNumber)
             {
                 validNumber = false;
                 isInt = false;
+                break;
             }
             else
             {
@@ -57,6 +58,7 @@ while (!validNumber)
             {
                 validNumber = false;
                 isInt = false;
+                break;
             }
             else
             {
@@ -79,17 +81,47 @@ while (!isInt && newBase <= 16)
     isInt = int.TryParse(Console.ReadLine(), out newBase);
 }
 
-integer = Convert.ToInt32(number, startBase);
-number = Int32ToString(integer, newBase);
+integer = BaseAToDecimal(number, startBase);
+number = DecimalToBaseB(integer, newBase);
 
 Console.WriteLine($"{startNumber}, base {startBase} in base {newBase} is {number}");
 Console.ReadLine();
 
 
-string Int32ToString(int value, int toBase)
+int val(char c)
+{
+    if (c >= '0' && c <= '9')
+        return (int)c - '0';
+    else
+        return (int)c - 'A' + 10;
+}
+
+int BaseAToDecimal(string str, int fromBase)
+{
+    int len = str.Length;
+    int power = 1; 
+    int num = 0; 
+    int i;
+
+    for (i = len - 1; i >= 0; i--)
+    {
+        if (val(str[i]) >= fromBase)
+        {
+            Console.WriteLine("Invalid Number");
+            return -1;
+        }
+
+        num += val(str[i]) * power;
+        power = power * fromBase;
+    }
+
+    return num;
+}
+
+string DecimalToBaseB(int value, int toBase)
 {
     string result = "";
-    
+
     while (value > 0)
     {
         result = "0123456789ABCDEF"[value % toBase] + result;
