@@ -98,12 +98,12 @@ int val(char c)
 
 int BaseAToDecimal(string str, int fromBase)
 {
-    int len = str.Length;
+    int length = str.Length;
     int power = 1; 
     int num = 0; 
     int i;
 
-    for (i = len - 1; i >= 0; i--)
+    for (i = length - 1; i >= 0; i--)
     {
         if (val(str[i]) >= fromBase)
         {
