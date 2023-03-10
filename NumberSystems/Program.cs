@@ -1,17 +1,18 @@
 ﻿using System;
 
-string answer = "";
-string number = "";
-string startNumber;
-int integer = 0;
-int startBase = 0;
-int newBase = 0;
-bool isInt = false;
-bool validNumber = false;
 bool yes = true;
 
 while (yes)
 {
+    string answer = "";
+    string number = "";
+    string startNumber;
+    int integer = 0;
+    int startBase = 0;
+    int newBase = 0;
+    bool isInt = false;
+    bool validNumber = false;
+
     Console.Clear();
 
     Console.WriteLine("What number do you want to convert?");
@@ -144,20 +145,9 @@ while (yes)
         Console.Clear();
         Console.WriteLine("Please reply with 'yes' or 'no'");
 
-        if(answer == "no")
+        if (answer == "no")
         {
             yes = false;
         }
-        
-        if(answer == "yes")
-        {
-            number = "";
-            integer = 0;
-            startBase = 0;
-            newBase = 0;
-            isInt = false;
-            validNumber = false;
-        }
     }
-    answer = "";
 }
